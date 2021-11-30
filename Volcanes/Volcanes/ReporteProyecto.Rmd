@@ -1,0 +1,45 @@
+---
+title: "Proyecto Final"
+author: "Jesus Jimenez y Seth Harrington"
+date: "30/11/2021"
+knit: (function(inputFile, encoding){
+      out_dir <- '../';
+      rmarkdown::render(inputFile,
+                        encoding=encoding,
+                        output_file=file.path(dirname(inputFile), out_dir, './reporteproyecto.html')) })
+output: html_document
+---
+```{r setup, include=FALSE}
+library(knitr)
+code = readLines("../analysis.py")
+read_chunk(lines=code)
+knitr::opts_chunk$set(echo = T)
+```
+
+# Parte 1
+### Se importan las librerias necesarias para la primera parte
+```{python Item1}
+```
+### Definicion de la clase FileProcessCovid 
+```{python Item2}
+```
+### Ejecucion del codigo
+```{python Item3}
+```
+# Parte 2
+### Se importan las librerias necesarias
+```{python Item4}
+```
+### Clase ACP
+```{python Item5}
+```
+### La ruta donde esta el archivo para cargar
+```{python Item6}
+```
+### Ejecucion del programa para una lista de paises en America
+```{python Item7}
+```
+### Ejecucion del programa para una lista de paises en Europa
+```{python Item8}
+```
+
