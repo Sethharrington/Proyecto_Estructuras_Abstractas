@@ -14,3 +14,5 @@ def portada(request):
 def volcanes(request):
     return render(request, "plantilla2.html")
 
+def acercade(request):
+    return render(request, "acercade.html")

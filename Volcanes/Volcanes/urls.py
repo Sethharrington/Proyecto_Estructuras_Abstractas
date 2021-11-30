@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from Volcanes.views import portada, volcanes
+from Volcanes.views import acercade, acercade, portada, volcanes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('portada/', portada),
     path("Covid19", include("Covid19.urls")),
-    path('volcanes/',volcanes)
+    path('volcanes/',volcanes),
+    path('acercade/', acercade),
 ]
