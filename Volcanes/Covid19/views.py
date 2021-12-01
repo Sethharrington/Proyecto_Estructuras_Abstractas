@@ -1,52 +1,85 @@
 from django.shortcuts import render
-from django.http import JsonResponse
 from Covid19.analysis import Analysis
+from Covid19.analysis import ruta
 # Create your views here.
 fecha = ['14/07/2021','20/07/2021'] #fecha para pruebas
-obj = Analysis('Covid19/archivosDeDatos/07_20_21_CSV_ACTIVOS_UTF8.csv')
-obj.x
-obj.y
-obj.canton('Acosta')
-casos_Nuevos = []
-fechas = []
-for i in obj.y:
-    casos_Nuevos.append(i)
 def CovidDashboard(request):
-    plantilla = "Covid19/reportes.html"
-    return render(request, plantilla)
-
-def SanJoseReport(request):
-    sanJose = Analysis('Covid19/archivosDeDatos/07_20_21_CSV_ACTIVOS_UTF8.csv')
-    datosAcosta = []
-    datosAlajuelita= []
-    cantonesSanJose = ['Acosta','Alajuelita']
-    datosanJose = [datosAcosta, datosAlajuelita]
-    sanJose.canton(cantonesSanJose)
-    for i in sanJose.y.loc['Acosta',:]:
-        datosAcosta.append(i)
-    for i in sanJose.y.loc['Alajuelita',:]:
-        datosAlajuelita.append(i)
-    plantilla1 = "Covid19/sanjose.html"
-    return render(request, plantilla1, {"datos":datosanJose})
+    costaRica = Analysis(ruta)
+    costaRica.fecha = fecha
+    costaRica.provincia()
+    datosCostaRica = [costaRica.x,costaRica.y]
+    return render(request, "Covid19/reportes.html", {"datos":datosCostaRica})
 
 def ReporteFinal(request):
-    plantilla = "Covid19/reporteproyecto.html"
-    return render(request, plantilla)
+    return render(request, "Covid19/reporteproyecto.html")
 
 def Alajuela(request):
-    return render(request, "Covid19/alajuela.html")
+    alajuela = Analysis(ruta)
+    alajuela.fecha = fecha
+    alajuela.cantonesProvincia("Alajuela")
+    datoalajuela = []
+    for i in range(len(alajuela.cantones)):
+        alajuela.canton(alajuela.cantones[i])
+        datoalajuela.append(alajuela.y)
+    return render(request, "Covid19/alajuela.html", {"datos":datoalajuela,"fechas":fecha,"cantones":alajuela.cantones})
 
 def Cartago(request):
-    return render(request, "Covid19/cartago.html")
+    cartago = Analysis(ruta)
+    cartago.fecha = fecha
+    cartago.cantonesProvincia("Cartago")
+    datocartago = []
+    for i in range(len(cartago.cantones)):
+        cartago.canton(cartago.cantones[i])
+        datocartago.append(cartago.y)
+    return render(request, "Covid19/cartago.html", {"datos":datocartago,"fechas":fecha,"cantones":cartago.cantones})
 
 def Guanacaste(request):
-    return render(request, "Covid19/guanacaste.html")
+    guanacaste = Analysis(ruta)
+    guanacaste.fecha = fecha
+    guanacaste.cantonesProvincia("Guanacaste")
+    datoguanacaste = []
+    for i in range(len(guanacaste.cantones)):
+        guanacaste.canton(guanacaste.cantones[i])
+        datoguanacaste.append(guanacaste.y)
+    return render(request, "Covid19/guanacaste.html", {"datos":datoguanacaste,"fechas":fecha,"cantones":guanacaste.cantones})
 
 def Heredia(request):
-    return render(request, "Covid19/heredia.html")
+    heredia = Analysis(ruta)
+    heredia.fecha = fecha
+    heredia.cantonesProvincia("Heredia")
+    datoheredia = []
+    for i in range(len(heredia.cantones)):
+        heredia.canton(heredia.cantones[i])
+        datoheredia.append(heredia.y)
+    return render(request, "Covid19/heredia.html", {"datos":datoheredia,"fechas":fecha,"cantones":heredia.cantones})
 
 def Limon(request):
-    return render(request, "Covid19/limon.html")
+    limon = Analysis(ruta)
+    limon.fecha = fecha
+    limon.cantonesProvincia("Limon")
+    datolimon = []
+    for i in range(len(limon.cantones)):
+        limon.canton(limon.cantones[i])
+        datolimon.append(limon.y)
+    return render(request, "Covid19/limon.html", {"datos":datolimon,"fechas":fecha,"cantones":limon.cantones})
 
 def Puntarenas(request):
-    return render(request, "Covid19/puntarenas.html")
+    puntarenas = Analysis(ruta)
+    puntarenas.fecha = fecha
+    puntarenas.cantonesProvincia("Puntarenas")
+    datopuntarenas = []
+    for i in range(len(puntarenas.cantones)):
+        puntarenas.canton(puntarenas.cantones[i])
+        datopuntarenas.append(puntarenas.y)
+    return render(request, "Covid19/puntarenas.html", {"datos":datopuntarenas,"fechas":fecha,"cantones":puntarenas.cantones})
+
+def SanJoseReport(request):
+    sanJose = Analysis(ruta)
+    sanJose.fecha = fecha
+    sanJose.cantonesProvincia("San Jose")
+    datosanJose = []
+    for i in range(len(sanJose.cantones)):
+        sanJose.canton(sanJose.cantones[i])
+        datosanJose.append(sanJose.y)
+    
+    return render(request, "Covid19/sanjose.html", {"datos":datosanJose,"fechas":fecha,"cantones":sanJose.cantones})

@@ -18,29 +18,20 @@ knitr::opts_chunk$set(echo = T)
 ```
 
 # Parte 1
-### Se importan las librerias necesarias para la primera parte
+### Se importan las librerias necesarias
 ```{python Item1}
 ```
-### Definicion de la clase FileProcessCovid 
+### Definicion de la clase Analysis para poder extraer los datos y enviarlos correctamente a los gráficos en las páginas
 ```{python Item2}
 ```
-### Ejecucion del codigo
+### Ejemplo del metodo provincias
 ```{python Item3}
 ```
 # Parte 2
-### Se importan las librerias necesarias
+### Ejemplo del metodo canton
 ```{python Item4}
 ```
-### Clase ACP
+### Ejemplo del metodo ACP
 ```{python Item5}
-```
-### La ruta donde esta el archivo para cargar
-```{python Item6}
-```
-### Ejecucion del programa para una lista de paises en America
-```{python Item7}
-```
-### Ejecucion del programa para una lista de paises en Europa
-```{python Item8}
 ```
 
