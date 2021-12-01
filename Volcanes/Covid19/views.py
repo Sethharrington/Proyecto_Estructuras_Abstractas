@@ -17,17 +17,19 @@ def CovidDashboard(request):
     return render(request, plantilla)
 
 def SanJoseReport(request):
-    obj = Analysis('Covid19/archivosDeDatos/07_20_21_CSV_ACTIVOS_UTF8.csv')
+    sanJose = Analysis('Covid19/archivosDeDatos/07_20_21_CSV_ACTIVOS_UTF8.csv')
     datosAcosta = []
     datosAlajuelita= []
-    sanJose = [datosAcosta, datosAlajuelita]
-    fechas = []
-    for i in obj.x:
-        fechas.append(i)
-    obj.canton(['Acosta','Alajuelita'],fecha)
-    for i in obj.y.loc['Acosta',:]:
+    cantonesSanJose = ['Acosta','Alajuelita']
+    datosanJose = [datosAcosta, datosAlajuelita]
+    sanJose.canton(cantonesSanJose,fecha)
+    for i in sanJose.y.loc['Acosta',:]:
         datosAcosta.append(i)
-    for i in obj.y.loc['Alajuelita',:]:
+    for i in sanJose.y.loc['Alajuelita',:]:
         datosAlajuelita.append(i)
     plantilla1 = "Covid19/sanjose.html"
-    return render(request, plantilla1, {"datos":sanJose,"fechas":fechas})
+    return render(request, plantilla1, {"datos":datosanJose})
+
+def ReporteFinal(request):
+    plantilla = "Covid19/reporteproyecto.html"
+    return render(request, plantilla)

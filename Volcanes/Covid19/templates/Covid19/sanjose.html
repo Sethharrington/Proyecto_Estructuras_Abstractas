@@ -24,7 +24,7 @@ const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: {{fechas}},
+        labels: ["14/07/2021","15/07/2021","16/07/2021","17/07/2021","18/07/2021","19/07/2021","20/07/2021"],
         datasets: [{
             label: 'Acosta',
             data: {{datos.0}},
@@ -60,7 +60,6 @@ const myChart = new Chart(ctx, {
         }
     }
 });
-
 </script>
 </body>
 

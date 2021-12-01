@@ -3,15 +3,16 @@ title: "Proyecto Final"
 author: "Jesus Jimenez y Seth Harrington"
 date: "30/11/2021"
 knit: (function(inputFile, encoding){
-      out_dir <- '../';
+      out_dir <- '/';
       rmarkdown::render(inputFile,
                         encoding=encoding,
-                        output_file=file.path(dirname(inputFile), out_dir, './reporteproyecto.html')) })
+                        output_file=file.path(dirname(inputFile), out_dir, './templates/Covid19/reporteproyecto.html'))})
 output: html_document
 ---
+
 ```{r setup, include=FALSE}
 library(knitr)
-code = readLines("../analysis.py")
+code = readLines("analysis.py")
 read_chunk(lines=code)
 knitr::opts_chunk$set(echo = T)
 ```

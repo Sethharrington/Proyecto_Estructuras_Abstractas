@@ -1,6 +1,5 @@
 ## @knitr Item1 
 import pandas as pd
-#import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
@@ -42,20 +41,20 @@ class Analysis:
     
 ## @knitr Item3
 ##################################### main
-'''fecha = ['21/04/2020','31/12/2020'] #fecha para pruebas
-obj = Analysis('Covid19/archivosDeDatos/07_20_21_CSV_ACTIVOS_UTF8.csv')
+#fecha = ['21/04/2020','31/12/2020'] #fecha para pruebas
+#obj = Analysis('./archivosDeDatos/07_20_21_CSV_ACTIVOS_UTF8.csv')
 
 ## @knitr Item4
 #### pruebas de metodo canton
-obj.canton('Sarapiquí', fecha )
-obj.canton('San Carlos', fecha )
+#obj.canton('Sarapiquí', fecha )
+#obj.canton('San Carlos', fecha )
 #obj.canton('Montes de Oca', fecha )
 #obj.canton('Pérez Zeledón', fecha )
 
 ## @knitr Item5
 #### pruebas de metodo ACP
-obj.Acotar(fecha, 0)
-obj.ACP()
+#obj.Acotar(fecha, 0)
+#obj.ACP()
 
-obj.Acotar(fecha,['Sarapiquí','San Carlos','Montes de Oca','Pérez Zeledón','Pococí','Limón','Alajuela','Tilarán','Santa Ana','Escazú','Belén'])
-obj.ACP()'''
+#obj.Acotar(fecha,['Sarapiquí','San Carlos','Montes de Oca','Pérez Zeledón','Pococí','Limón','Alajuela','Tilarán','Santa Ana','Escazú','Belén'])
+#obj.ACP()
