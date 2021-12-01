@@ -32,3 +32,21 @@ def SanJoseReport(request):
 def ReporteFinal(request):
     plantilla = "Covid19/reporteproyecto.html"
     return render(request, plantilla)
+
+def Alajuela(request):
+    return render(request, "Covid19/alajuela.html")
+
+def Cartago(request):
+    return render(request, "Covid19/cartago.html")
+
+def Guanacaste(request):
+    return render(request, "Covid19/guanacaste.html")
+
+def Heredia(request):
+    return render(request, "Covid19/heredia.html")
+
+def Limon(request):
+    return render(request, "Covid19/limon.html")
+
+def Puntarenas(request):
+    return render(request, "Covid19/puntarenas.html")
