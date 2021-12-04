@@ -9,27 +9,27 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=/volcanes>Información</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'Covid19:reportes' %}">Reportes</a>
+                <a class="nav-link" href="{% url 'Covid19:reportes' %}">Costa Rica</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Provincias
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Alajuela</a></li>
-                  <li><a class="dropdown-item" href="#">Cartago</a></li>
-                  <li><a class="dropdown-item" href="#">Guanacaste</a></li>
-                  <li><a class="dropdown-item" href="#">Heredia</a></li>
-                  <li><a class="dropdown-item" href="#">Limón</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Covid19:alajuela' %}">Alajuela</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Covid19:cartago' %}">Cartago</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Covid19:guanacaste' %}">Guanacaste</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Covid19:heredia' %}">Heredia</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Covid19:limon' %}">Limón</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Covid19:puntarenas' %}">Puntarenas</a></li>
                   <li><a class="dropdown-item" href="{% url 'Covid19:sanjose' %}">San Jose</a></li>
-                  <li><a class="dropdown-item" href="#">Puntarenas</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=/acercade>Acerca de</a>
+                <a class="nav-link" href=/acercade>Más información</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'Covid19:reportefinal' %}">Reporte del Proyecto</a>
               </li>
             </ul>
           </div>

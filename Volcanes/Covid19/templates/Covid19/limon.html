@@ -1,0 +1,99 @@
+{% extends "Internas/Principal.html" %}
+
+{% block contenido %}
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+        integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<h1 style="background-color: lightskyblue; color: black; text-align: center; margin-left: 50px; margin-right: 50px;">
+    Limón
+</h1>
+
+<body>
+    <div class="alert alert-primary" role="alert">
+        Se muestran las fechas entre {{fechas.0}} y {{fechas.1}}
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-12" style="align-content: center; background-color: salmon;">
+            <div class="card"
+                style="margin-top: 30px; margin-left: 30px; align-items: center; margin-right: 30px; margin-bottom: 30px;">
+                <div class="card-body">
+                    <canvas id="myChart" width="600" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+        <table class="table" style="margin-left: 25%; width: 50%; margin-right: 25%;">
+            <thead>
+                <tr>
+                    <th scope="col">Provincia</th>
+                    <th scope="col">Nombre del Canton</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for elCanton in cantones %}
+                <tr>
+                    <th scope="row">San Jose</th>
+                    <td>{{elCanton}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["14/07/2021", "15/07/2021", "16/07/2021", "17/07/2021", "18/07/2021", "19/07/2021", "20/07/2021"],
+                    datasets: [
+                    {
+                label: 'Guácimo',
+                data: {{ datos.0}},
+                backgroundColor: ['rgba(255, 99, 132, 0.2)',],
+                borderColor: ['rgb(255, 99, 132)'],
+                borderWidth: 1
+            }, {
+                label: 'Limón',
+                data: {{ datos.1}},
+                backgroundColor: ['rgba(255, 159, 64, 0.2)'],
+                borderColor: ['rgb(255, 159, 64)'],
+                borderWidth: 1
+            }, {
+                label: 'Matina',
+                data: {{datos.2 }},
+                backgroundColor: ['rgba(255, 205, 86, 0.2)'],
+                borderColor: ['rgb(255, 205, 86)'],
+                borderWidth: 1
+            }, {
+                label: 'Pococí',
+                data: {{datos.3 }},
+                backgroundColor: ['rgba(75, 192, 192, 0.2)'],
+                    borderColor: ['rgb(75, 192, 192)'],
+                        borderWidth: 1
+            }, {
+                label: 'Siquirres',
+                data: {{datos.4 }},
+                backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                borderColor: ['rgb(54, 162, 235)'],
+                borderWidth: 1
+            }, {
+                label: 'Talamanca',
+                data: {{datos.5 }},
+                backgroundColor: ['rgba(153, 102, 255, 0.2)'],
+                borderColor: ['rgb(153, 102, 255)'],
+                borderWidth: 1
+            }]
+    },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+});
+        </script>
+</body>
+{% endblock %} 

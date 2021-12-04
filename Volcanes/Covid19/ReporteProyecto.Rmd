@@ -1,0 +1,37 @@
+---
+title: "Proyecto Final"
+author: "Jesus Jimenez y Seth Harrington"
+date: "30/11/2021"
+knit: (function(inputFile, encoding){
+      out_dir <- '/';
+      rmarkdown::render(inputFile,
+                        encoding=encoding,
+                        output_file=file.path(dirname(inputFile), out_dir, './templates/Covid19/reporteproyecto.html'))})
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+code = readLines("analysis.py")
+read_chunk(lines=code)
+knitr::opts_chunk$set(echo = T)
+```
+
+# Parte 1
+### Se importan las librerias necesarias
+```{python Item1}
+```
+### Definicion de la clase Analysis para poder extraer los datos y enviarlos correctamente a los gráficos en las páginas
+```{python Item2}
+```
+### Ejemplo del metodo provincias
+```{python Item3}
+```
+# Parte 2
+### Ejemplo del metodo canton
+```{python Item4}
+```
+### Ejemplo del metodo ACP
+```{python Item5}
+```
+
